@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subnet - Technology Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@heroicons/react@2.0.0/24/outline/index.js" type="module"></script>
+    <!-- Using Heroicons SVG icons directly instead of React components -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -16,24 +16,82 @@
                     },
                     colors: {
                         primary: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        tech: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'code-scroll': 'codeScroll 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0px)', opacity: '1' }
+                        },
+                        codeScroll: {
+                            '0%': { transform: 'translateY(100vh)' },
+                            '100%': { transform: 'translateY(-100vh)' }
                         }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .code-bg {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(59, 130, 246, 0.2);
+            user-select: none;
+            pointer-events: none;
+        }
+        .gradient-mesh {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.1) 0%, 
+                rgba(139, 92, 246, 0.1) 50%, 
+                rgba(236, 72, 153, 0.1) 100%);
+        }
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
 </head>
-<body class="h-full bg-white font-sans">
+<body class="h-full bg-tech-900 font-sans relative overflow-x-hidden">
+    <!-- Animated Code Background removed - will be added to specific sections -->
+    
+    <!-- Main Content -->
+    <div class="relative z-10">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -84,11 +142,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-white overflow-hidden">
+    <section class="relative bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden">
+        <!-- Tech-inspired background elements -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-2 h-2 bg-primary-400 rounded-full animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+            <div class="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2s"></div>
+            <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" style="animation-delay: 3s"></div>
+        </div>
+        
         <div class="mx-auto max-w-7xl">
-            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <div class="relative z-10 pb-8 bg-gradient-to-r from-white/95 via-white/90 to-transparent sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 backdrop-blur-sm">
+                <!-- Modern tech-inspired SVG shape -->
+                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white/80 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                     <polygon points="50,0 100,0 50,100 0,100" />
+                    <defs>
+                        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:0.1" />
+                            <stop offset="100%" style="stop-color:rgb(147,51,234);stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
                 </svg>
 
                 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 min-h-[600px] flex flex-col justify-center">
@@ -117,22 +190,107 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <div class="h-56 w-full bg-gradient-to-br from-primary-500 to-purple-600 sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center">
-                <div class="text-white text-center">
-                    <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            <div class="h-56 w-full bg-white/20 backdrop-blur-lg border border-white/20 sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center relative overflow-hidden shadow-2xl">
+                <!-- Liquid glass background effects -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-blue-50/30 to-cyan-50/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-white/5 to-blue-100/10"></div>
+                
+                <!-- Floating glass orbs -->
+                <div class="absolute inset-0">
+                    <div class="absolute top-10 left-10 w-8 h-8 bg-white/10 rounded-full backdrop-blur-sm animate-float"></div>
+                    <div class="absolute top-1/4 right-20 w-6 h-6 bg-blue-200/20 rounded-full backdrop-blur-sm animate-float" style="animation-delay: 1s"></div>
+                    <div class="absolute bottom-20 left-1/4 w-10 h-10 bg-cyan-100/15 rounded-full backdrop-blur-sm animate-float" style="animation-delay: 2s"></div>
+                    <div class="absolute top-1/2 right-1/3 w-4 h-4 bg-white/15 rounded-full backdrop-blur-sm animate-float" style="animation-delay: 3s"></div>
+                    <div class="absolute bottom-1/3 right-10 w-7 h-7 bg-blue-100/20 rounded-full backdrop-blur-sm animate-float" style="animation-delay: 4s"></div>
+                </div>
+                
+                <div class="text-slate-700 text-center relative z-10">
+                    <!-- Network-Inspired Subnet Logo -->
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                        <!-- Network visualization -->
+                        <svg class="w-10 h-10 text-white" viewBox="0 0 100 100" fill="none">
+                            <!-- Central node -->
+                            <circle cx="50" cy="50" r="8" fill="currentColor" class="animate-pulse" />
+                            
+                            <!-- Subnet nodes -->
+                            <circle cx="30" cy="25" r="5" fill="currentColor" opacity="0.8" />
+                            <circle cx="70" cy="25" r="5" fill="currentColor" opacity="0.8" />
+                            <circle cx="25" cy="50" r="5" fill="currentColor" opacity="0.8" />
+                            <circle cx="75" cy="50" r="5" fill="currentColor" opacity="0.8" />
+                            <circle cx="30" cy="75" r="5" fill="currentColor" opacity="0.8" />
+                            <circle cx="70" cy="75" r="5" fill="currentColor" opacity="0.8" />
+                            
+                            <!-- Connection lines -->
+                            <line x1="50" y1="50" x2="30" y2="25" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            <line x1="50" y1="50" x2="70" y2="25" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            <line x1="50" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            <line x1="50" y1="50" x2="75" y2="50" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            <line x1="50" y1="50" x2="30" y2="75" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            <line x1="50" y1="50" x2="70" y2="75" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                            
+                            <!-- Subnet connections -->
+                            <line x1="30" y1="25" x2="70" y2="25" stroke="currentColor" stroke-width="1.5" opacity="0.4" />
+                            <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.4" />
+                            <line x1="30" y1="75" x2="70" y2="75" stroke="currentColor" stroke-width="1.5" opacity="0.4" />
+                            
+                            <!-- Data flow indicators -->
+                            <circle cx="40" cy="37" r="1.5" fill="currentColor" opacity="0.9">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="60" cy="37" r="1.5" fill="currentColor" opacity="0.9">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                            </circle>
+                            <circle cx="37" cy="62" r="1.5" fill="currentColor" opacity="0.9">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s" />
+                            </circle>
+                            <circle cx="63" cy="62" r="1.5" fill="currentColor" opacity="0.9">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1.5s" />
+                            </circle>
                         </svg>
+                        
+                        <!-- Subtle grid overlay -->
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 16px 16px;"></div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2" data-translate="hero.feature.title">Growth-Ready Technology</h3>
-                    <p class="text-lg opacity-90" data-translate="hero.feature.subtitle">Built to Scale with Your Success</p>
+                    
+                    <!-- Brand Name -->
+                    <div class="mb-4">
+                        <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                            Subnet
+                        </h2>
+                        <div class="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mt-2"></div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700" data-translate="hero.feature.title">Thoughtful Architecture</h3>
+                    <p class="text-base opacity-80 text-slate-600" data-translate="hero.feature.subtitle">Systems designed for long-term success</p>
+                    
+                    <!-- Tech indicators -->
+                    <div class="mt-5 flex justify-center space-x-4">
+                        <div class="flex items-center space-x-2 text-sm text-slate-600">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span>Scalable</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-slate-600">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+                            <span>Reliable</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-slate-600">
+                            <div class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" style="animation-delay: 2s"></div>
+                            <span>Future-Ready</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
+    <section id="services" class="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <!-- Tech background pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="tech-grid h-full w-full"></div>
+        </div>
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase" data-translate="services.label">Services</h2>
@@ -146,9 +304,9 @@
 
             <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <!-- Service 1 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3V6a3 3 0 013-3h13.5a3 3 0 013 3v5.25a3 3 0 01-3 3m-16.5 0a3 3 0 013 3v6.75a3 3 0 013 3h7.5a3 3 0 013-3v-6.75a3 3 0 013-3" />
                             </svg>
@@ -163,17 +321,12 @@
                             Build systems that grow with your business. No more worrying about technology limitations holding back your expansion or costly rebuilds every few years.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                             </svg>
@@ -187,17 +340,12 @@
                             Eliminate performance bottlenecks that limit growth. Ensure your systems can handle traffic spikes, peak seasons, and rapid customer acquisition without breaking.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                             </svg>
@@ -211,17 +359,12 @@
                             Stop losing revenue to system outages. Build reliability into your core business processes with proactive monitoring and automated recovery systems.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c.251.023.501.05.75.082m-.75-.082a24.301 24.301 0 00-4.688 1.746c-2.478 1.3-4.5 3.166-4.5 5.58 0 1.398.5 2.715 1.4 3.814L5 18.5m4.75-15.396c.376.055.752.117 1.125.185m-1.125-.185a12.25 12.25 0 013.114.176m-.176-.176c1.307.193 2.57.463 3.777.808 2.478 1.3 4.5 3.166 4.5 5.58 0 1.398-.5 2.715-1.4 3.814L15 18.5M9.75 3.104c.251.023.501.05.75.082" />
                             </svg>
@@ -235,17 +378,12 @@
                             Transform your data into competitive advantages. Implement AI and machine learning solutions that improve decision-making and create new revenue streams.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                             </svg>
@@ -259,17 +397,12 @@
                             Safeguard your reputation and customer data. Build security into every process to prevent breaches that could cost millions and destroy trust.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 6 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
                             </svg>
@@ -283,17 +416,12 @@
                             Move to the cloud strategically to cut infrastructure costs while improving flexibility. Stop overpaying for servers and maintenance you don't need.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 7 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
                             </svg>
@@ -307,17 +435,12 @@
                             Free your team from manual tasks that waste time and create errors. Automate workflows, approvals, and data entry to focus on strategic work that grows your business.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 8 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
                             </svg>
@@ -331,17 +454,12 @@
                             Transform scattered data into a single source of truth. Get real-time dashboards and reports that help you make faster, smarter decisions and spot opportunities before competitors.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
 
                 <!-- Service 9 -->
-                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div class="relative group bg-white/80 backdrop-blur-sm p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500 rounded-xl shadow-lg hover:shadow-2xl hover:bg-white transition-all duration-300 border border-gray-100 hover:border-primary-200">
                     <div>
-                        <span class="rounded-lg inline-flex p-3 bg-primary-50 text-primary-600 ring-4 ring-white">
+                        <span class="rounded-xl inline-flex p-3 bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 ring-4 ring-white shadow-sm group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:scale-110">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                             </svg>
@@ -355,11 +473,6 @@
                             Implement AI solutions that solve real business problems. From customer service chatbots to predictive analytics, get AI that delivers measurable ROI, not just buzzwords.
                         </p>
                     </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586l-4.293 4.293z"></path>
-                        </svg>
-                    </span>
                 </div>
             </div>
         </div>
@@ -721,11 +834,20 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-primary-600">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-16 relative overflow-hidden bg-gradient-to-br from-tech-900 via-primary-800 to-purple-900">
+        <!-- Animated tech background -->
+        <div class="absolute inset-0">
+            <div class="tech-grid opacity-20 h-full w-full"></div>
+            <!-- Floating elements -->
+            <div class="absolute top-10 left-10 w-4 h-4 bg-cyan-400 rounded-full animate-ping"></div>
+            <div class="absolute top-1/4 right-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 left-1/4 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
+            <div class="absolute top-1/2 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-ping" style="animation-delay: 2s"></div>
+        </div>
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                    <span data-translate="contact.title">Ready to unlock your growth potential?</span>
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl drop-shadow-lg">
+                    <span data-translate="contact.title">Let's discuss your project</span>
                 </h2>
                 <p class="mt-4 text-lg text-primary-200">
                     <span data-translate="contact.subtitle">Let's talk about turning your technology challenges into competitive advantages.</span>
@@ -1117,11 +1239,61 @@
         .animate-fade-in {
             animation: fade-in 0.6s ease-out;
         }
+        
+        /* Tech-inspired glow effects */
+        .tech-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        .tech-glow:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Intersection Observer animation classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Ensure smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
+        
     </style>
+    
+    <script>
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+        });
+        
+        // Scroll-triggered animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('fade-in-section');
+                observer.observe(section);
+            });
+        }
+    </script>
+    </div> <!-- Close main content div -->
 </body>
 </html>
