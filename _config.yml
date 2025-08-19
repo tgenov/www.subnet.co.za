@@ -1,10 +1,10 @@
 # Site settings
-title: Todor Genov - Technology Consulting
-subtitle: Distributed Systems, Scalability, System Reliability, MLOps, DevSecOps
-description: Technology consulting specializing in distributed systems, scalability, system reliability, MLOps, and DevSecOps. Expert guidance for modern software architecture and infrastructure.
+title: Subnet - Technology Consulting
+subtitle: Scale Your Business Without the Growing Pains
+description: Strategic technology solutions that drive revenue growth, reduce costs, and position your business for the future. Turn technology into your competitive advantage.
 author: Todor Genov
 email: consulting@subnet.co.za
-url: https://todor.github.io/www.subnet.co.za
+url: https://subnet.co.za
 baseurl: ""
 
 # Build settings
