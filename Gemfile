@@ -24,7 +24,7 @@ end
 gem "listen", "~> 3.7"
 
 # Web server for local development (compatible versions)
-gem "sinatra", "~> 4.1"
+gem "sinatra", "~> 4.2"
 gem "rack", "~> 3.2"
 
 # Windows and JRuby compatibility
