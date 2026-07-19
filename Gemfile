@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-# Specify Ruby version (GitHub Pages supports 2.7+)
-ruby "3.3.5"
+# Specify the supported Ruby 3.3 patch series (GitHub Pages supports 2.7+)
+ruby "~> 3.3.0"
 
 # GitHub Pages compatible setup
 gem "github-pages", group: :jekyll_plugins
